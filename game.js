@@ -5,7 +5,7 @@ const players = require('./players');
 
 class Game {
     constructor(){
-        this.Player1 = new players.Human("Player1",0);
+        this.Player1 = new players.Human("Player 1",0);
         this.Player2;
     }
 
@@ -33,19 +33,24 @@ class Game {
         All games are best 2 out of 3
         `);
         let gameType = prompt();
-        if (gameType === 1){
-            this.Player2 = new players.AI("Player 2", 0);
-        }else if(gameType === 2){
+        if (gameType == 1){
+            this.Player2 = new players.AI("Player 2 (AI)", 0);
+            console.log(`Player1 = ${this.Player1.name} and Player2 = ${this.Player2.name}`);
+            this.chooseGesture();
+            
+        }else if(gameType == 2){
             this.Player2 = new players.Human("Player 2", 0);
+            console.log(`Player1 = ${this.Player1.name} and Player2 = ${this.Player2.name}`);
+            this.chooseGesture();
         }
         else{
             console.log("Invalid choice")
         }
+       
     }
 
     gestureChoices(){
-        //let gestures = [Rock, Paper, Scissors, Lizard, Spock];
-        //return gestures;
+        let gestures = [Rock, Paper, Scissors, Lizard, Spock];
     }
     
     gameRules(){
@@ -60,19 +65,17 @@ class Game {
         Paper disproves Spock   
         Spock vaporizes Rock`);
     }
+
+    chooseGesture(){
+        console.log(`Player 1, choose a gesture - Rock, Paper, Scissors, Lizard, or Spock?`);
+        let gestureChoice = prompt();
+        this.Player1.gesture = gestureChoice;
+        console.log(`You chose ${this.Player1.gesture}`);
+    }
     
     gameProgress(){
         
-    }
-    
-    singlePlayer(){
-    
-    
-    }
-    
-    twoPlayer(){
-    
-    }
+    }   
     
     /*
     if (player1Choice === "Rock"){
