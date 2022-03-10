@@ -2,25 +2,32 @@
 const prompt = require('prompt-sync')();
 class Player {
 
-    constructor(name,wins,gesture){
+    constructor(name){
         this.name = name;
-        this.wins = wins;
-        this.gesture = gesture;
+        this.wins = 0;
+        this.gesture = "";
+        this.gestureList = ["Rock", "Paper", "Scissors", "Lizard", "Spock"];
     }
 }
 
 class Human extends Player{
 
-    constructor(name,wins,gesture){
-        super(name,wins,gesture);
+    constructor(name){
+        super(name);
     }
-    
+    chooseGesture(){
+        console.log(`${this.name}, choose a gesture - 0 - Rock, 1 - Paper, 2 - Scissors, 3 - Lizard, or 4 - Spock`);
+        let index = parseInt(prompt());
+        }    
 }
 
 class AI extends Player{
     
-    constructor(name,wins,gesture){
-        super(name,wins,gesture);
+    constructor(name){
+        super(name);
+    }
+    chooseGesture(){
+    this.gesture = this.gestureList[Math.floor(Math.random()*this.gestureList.length)];
     }
 }
 
