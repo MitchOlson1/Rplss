@@ -11,26 +11,29 @@ class Game {
     }
 
     startGame(){
-        console.log(`Welcome to RPSLS!
+        console.log(
+        `WELCOME TO RPSLS!
         
+        ==============================
         Rules of the game:
-        Rock crushes Scissors  
-        Scissors cuts Paper  
-        Paper covers Rock   
-        Rock crushes Lizard   
-        Lizard poisons Spock   
-        Spock smashes Scissors  
-        Scissors decapitates Lizard  
-        Lizard eats Paper   
-        Paper disproves Spock   
-        Spock vaporizes Rock
+        • Rock crushes Scissors  
+        • Scissors cuts Paper  
+        • Paper covers Rock   
+        • Rock crushes Lizard   
+        • Lizard poisons Spock   
+        • Spock smashes Scissors  
+        • Scissors decapitates Lizard  
+        • Lizard eats Paper   
+        • Paper disproves Spock   
+        • Spock vaporizes Rock
+
+        First to win 2 rounds wins the game!
+        ===============================
+
+        Now that you know the rules, choose type of play:
+         >> Enter 1 to play against the computer
+         >> Enter 2 to play another humanoid
         
-        Now that you know the rules,
-        choose type of play.
-        Enter 1 for single player
-        Enter 2 for two player
-        
-        All games are best 2 out of 3
         `);
         let gameType = prompt();
         if (gameType == 1){
@@ -45,10 +48,8 @@ class Game {
         }
         else{
             console.log("Invalid choice")
-        }
-       
-    }
-    
+        }       
+    }    
 
     player1Wins(){
         this.Player1.wins += 1;
@@ -75,53 +76,53 @@ class Game {
         this.Player1.chooseGesture();
         this.Player2.chooseGesture();
 
-        let player1Choice = this.Player1.gesture;
-        let player2Choice = this.Player2.gesture;
-        if(player1Choice ===  player2Choice){
-            console.log(`It's a tie! Go again!`);
+        //let player1Choice = this.Player1.gesture;
+        //let player2Choice = this.Player2.gesture;
+        if(this.Player1.gesture ===  this.Player2.gesture){
+            console.log(`P1 = ${this.Player1.gesture} It's a tie! Go again! P2 = ${this.Player2.gesture}`);
             this.gameProgress();
         }
-        else if (player1Choice === "Rock"){
-            if(player2Choice === "Scissors" || player2Choice === "Lizard"){
+        else if (this.Player1.gesture === "Rock"){
+            if(this.Player2.gesture === "Scissors" || this.Player2.gesture === "Lizard"){
                 this.player1Wins();
             }
-            else if (player2Choice === "Paper" || player2Choice === "Spock")
+            else if (this.Player2.gesture === "Paper" || this.Player2.gesture === "Spock")
             {
                 this.player2Wins();
             }
         }        
-        else if (player1Choice === "Scissors"){
-            if(player2Choice === "Paper" || player2Choice === "Lizard"){
+        else if (this.Player1.gesture === "Scissors"){
+            if(this.Player2.gesture === "Paper" || this.Player2.gesture === "Lizard"){
                 this.player1Wins();
             }
-            else if (player2Choice === "Rock" || player2Choice === "Spock")
+            else if (this.Player2.gesture === "Rock" || this.Player2.gesture === "Spock")
             {
                 this.player2Wins();
             }
         }        
-        else if (player1Choice === "Paper"){
-            if(player2Choice === "Rock" || player2Choice === "Spock"){
+        else if (this.Player1.gesture === "Paper"){
+            if(this.Player2.gesture === "Rock" || this.Player2.gesture === "Spock"){
                 this.player1Wins();
             }
-            else if (player2Choice === "Scissors" || player2Choice === "Lizard")
+            else if (this.Player2.gesture === "Scissors" || this.Player2.gesture === "Lizard")
             {
                 this.player2Wins();
             }
         }        
-        else if (player1Choice === "Lizard"){
-            if(player2Choice === "Paper" || player2Choice === "Spock"){
+        else if (this.Player1.gesture === "Lizard"){
+            if(this.Player2.gesture === "Paper" || this.Player2.gesture === "Spock"){
                 this.player1Wins();
             }
-            else if (player2Choice === "Scissors" || player2Choice === "Rock")
+            else if (this.Player2.gesture === "Scissors" || this.Player2.gesture === "Rock")
             {
                 this.player2Wins();
             }
         }        
-        else if (player1Choice === "Spock"){
-            if(player2Choice === "Scissors" || player2Choice === "Rock"){
+        else if (this.Player1.gesture === "Spock"){
+            if(this.Player2.gesture === "Scissors" || this.Player2.gesture === "Rock"){
                 this.player1Wins();
             }
-            else if (player2Choice === "Lizard" || player2Choice === "Paper")
+            else if (this.Player2.gesture === "Lizard" || this.Player2.gesture === "Paper")
             {
                 this.player2Wins();
             }

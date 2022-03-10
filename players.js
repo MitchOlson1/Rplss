@@ -18,6 +18,7 @@ class Human extends Player{
     chooseGesture(){
         console.log(`${this.name}, choose a gesture - 0 - Rock, 1 - Paper, 2 - Scissors, 3 - Lizard, or 4 - Spock`);
         let index = parseInt(prompt());
+        this.gesture = this.gestureList[index];
         }    
 }
 
