@@ -1,4 +1,4 @@
- 
+
 "use strict";
 const prompt = require('prompt-sync')();
 const {Human,AI} = require('./players');
